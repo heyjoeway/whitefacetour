@@ -1,26 +1,30 @@
 $(function() {
-    function openSidebar() {
-        $("#sidebar").addClass("open");
+    let eSidebar = document.getElementById("sidebar");
+    let eNavbarMenu = document.getElementById("navbar-menu");
 
+    function openSidebar() {
+        eSidebar.classList.add("open");
+        
         setTimeout(function() {
-            $(window).on("click.sidebar", function() {
-                $("#sidebar").removeClass("open");
-                $(window).off("click.sidebar");
+            window.addEventListener("click", function() {
+                eSidebar.classList.remove("open");
+                window.removeEventListener("click", arguments.callee);
             });
         }, 1);
     }
 
-    $("#navbar-menu").click(openSidebar);
+    eNavbarMenu.addEventListener("click", openSidebar);
 
     function updateNavbar() {
-        var scrolled = $(window).scrollTop() > 8;
-        var wide = $(window).width() > 1440;
+        var scrolled = window.scrollY > 8;
+        var wide = window.innerWidth > 1440;
 
-        if (scrolled && !wide) $("#navbar").addClass("over");
-        else $("#navbar").removeClass("over"); 
+        if (scrolled && !wide) eNavbar.classList.add("over");
+        else eNavbar.classList.remove("over");
     }
 
-    $(window).scroll(updateNavbar);
-    $(window).resize(updateNavbar);
+    window.addEventListener("scroll", updateNavbar);
+    window.addEventListener("resize", updateNavbar);
+
     updateNavbar();
 });
