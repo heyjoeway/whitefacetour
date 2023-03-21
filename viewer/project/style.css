@@ -1,0 +1,192 @@
+
+body, .btn {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+html {
+    background: black;
+}
+
+body {
+    opacity: 0;
+    animation: fade-in 1s;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 100%; }
+}
+
+.splash, .navbar {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.splash {
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    text-align: center;
+
+    display: flex;
+
+    background-color: black;
+    color: #fff;
+
+    opacity: 1;
+    transition: opacity 0.5s;
+
+    overflow: auto;
+}
+
+.splash > div {
+    max-width: 550px;
+    margin: auto;
+    padding: 16px;
+}
+
+.splash h1 {
+    font-weight: 800;
+    font-size: 48px;
+    margin-bottom: -10px;
+}
+
+
+#navbar {
+    z-index: 9998;
+
+    transition: box-shadow 0.25s;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 64px;
+    
+    box-shadow: 0 0 16px 16px rgba(0,0,0,0);
+}
+
+#navbar-cont {
+    overflow: hidden;
+    transition: background 0.25s, backdrop-filter 0.25s;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+
+    background: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(0px);
+}
+
+#navbar-menu {
+    cursor: pointer;
+    height: 64px;
+    width: 64px;
+    display: inline-block;
+}
+
+#navbar-title {
+    display: inline-block;
+    height: 64px;
+    line-height: 64px;
+    vertical-align: top;
+}
+
+#navbar.over #navbar-cont {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+}
+
+#navbar.over {
+    box-shadow: 0 0 16px 8px rgba(0,0,0,0.1);
+}
+
+#sidebar {
+    z-index: 9999;
+
+    transition: left 0.25s, box-shadow 0.25s;
+
+    position: fixed;
+    top: 0;
+    left: -256px;
+    width: 256px;
+    height: 100vh;
+
+    background: black;
+    color: white;
+
+    box-shadow: 0 0 16px 8px rgba(0,0,0,0);   
+}
+
+#sidebar.open {
+    box-shadow: 0 0 16px 8px rgba(0,0,0,0.25);
+    left: 0;
+}
+
+#sidebar a {
+    color: white;
+
+    transition: background, 0.2s;
+
+    display: block;
+    width: 256px;
+    height: 64px;
+
+    padding-left: 32px;
+    line-height: 64px;
+
+    text-decoration: none;
+
+    box-sizing: border-box;
+}
+
+#sidebar a:hover {
+    background: grey;
+}
+
+#sidebar a:active {
+    background: dimgray;
+}
+
+#sidebar-logo {
+    width: 256px;
+    height: 256px;
+}
+
+.btn {
+    transition: background-color 1s, color 1s;
+    border: none;
+    background-color: white;
+    color: black;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-block;
+    user-select: none;
+}
+
+.btn-secondary {
+    background-color: lightgrey;
+}
+
+.btn:hover {
+    color: gray;
+}
+
+.btn:active {
+    background-color: gray;
+    color: black;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 48px;
+}
